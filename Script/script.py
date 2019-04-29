@@ -219,14 +219,52 @@ start_quarter = input()
 handle.write(start_quarter)
 handle.write('''
 </span> 
-										  <span id="StartMath" style="display:block;">StartMath </span>
-										  <span id="StartEngl" style="display:block;">230</span>										  
-                                          <span id="EnrollmentType" style="display:block;">EnrollmentType</span> 
-                                          <span id="JobType" style="display:block;">JobType</span> 
+										  <span id="StartMath" style="display:block;">
+''')
+# StartMath
+print("Starting Math?")
+start_math = input()
+handle.write(start_math) 
+handle.write('''
+</span>
+										  <span id="StartEngl" style="display:block;">
+''')
+#230
+print("Starting English?")
+start_english = input()
+handle.write(start_english)
+handle.write('''
+</span>										  
+                                          <span id="EnrollmentType" style="display:block;">
+''')
+#EnrollmentType
+enrollment = input("Full or Part Time Enrollment?\n")
+handle.write(enrollment)
+handle.write('''
+</span> 
+                                          <span id="JobType" style="display:block;">
+''')
+#JobType
+jobtype = input("Full or Part Time Job?\n")
+handle.write(jobtype)
+handle.write('''
+</span> 
                                         </span> 
 										<span id="Rank"> 
-                                          <span id="Grade" style="display:block;">Grade</span> 
-                                          <span id="Reason" style="display:block;">Reason</span> 
+                                          <span id="Grade" style="display:block;">
+''')
+#Grade
+grade = input("How good is this plan?\n")
+handle.write(grade)
+handle.write('''
+</span> 
+                                          <span id="Reason" style="display:block;">
+''')
+#Reason
+reason = input("Reason for the grade?\n")
+handle.write(reason)
+handle.write('''
+</span> 
                                         </span>
 									</td>
 									<td nowrap="" width="50">&nbsp;</td>
