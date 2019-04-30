@@ -12,7 +12,7 @@ def getNewFileName():
 file_num = getNewFileName()
 file_name = "schedule" + str(file_num) + ".html"
 print(file_name)
-handle = open(file_name, "w+")
+handle = open(file_name, "a+")
 handle.write('''
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0050)file:///C:/Users/liarh/Desktop/Plans/2-22-1/1.html -->
@@ -178,46 +178,46 @@ print("Give me a plan name. ")
 plan_name = input()
 print(plan_name)
 time.sleep(1)
-handle.print(plan_name)
+handle.write(plan_name)
 print("Got past print for plan name")
 time.sleep(1)
-handle.print('''
+handle.write('''
 										</span>
 									    <span id="Parameters"> 
 										  <span id="Major" style="display:block;">
 ''')
 print("Give me a Major. ")
 major = input()
-handle.print(major)
-handle.print('''
+handle.write(major)
+handle.write('''
 </span>
                                           <span id="School" style="display:block;">
 ''')
 print("Give me a School. ")
 school = input()
-handle.print(school)
-handle.print('''
+handle.write(school)
+handle.write('''
 </span>
                                           <span id="TimePreference" style="display:block;">
 ''')
 print("Give me a time preference. ")
 preference = input()
-handle.print(preference)
-handle.print('''
+handle.write(preference)
+handle.write('''
 </span> 
                                           <span id="SummerPreference" style="display:block;">
 ''')
 print("Summer classes? ")
 summer_classes = input()
-handle.print(summer_classes)
-handle.print('''
+handle.write(summer_classes)
+handle.write('''
 </span> 
                                           <span id="StartQuarter" style="display:block;">
 ''')
 print("Starting Quarter? ")
 start_quarter = input()
-handle.print(start_quarter)
-handle.print('''
+handle.write(start_quarter)
+handle.write('''
 </span> 
 										  <span id="StartMath" style="display:block;">StartMath </span>
 										  <span id="StartEngl" style="display:block;">230</span>										  
