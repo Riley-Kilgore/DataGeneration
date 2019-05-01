@@ -11,31 +11,31 @@ def write_file(filename, data):
 
 class Schedule:
     # Preferences
-    string planName
-    string major
-    string school
-    string timePref
-    string summerPref
-    string startQuarter
-    string startMath
-    string startEnglish
-    string enrollType
-    string jobType
+    planName
+    major
+    school
+    timePref
+    summerPref
+    startQuarter
+    startMath
+    startEnglish
+    enrollType
+    jobType
 
     #Rank
-    string scheduleGrade
-    string gradeReason
+    scheduleGrade
+    gradeReason
 
     # Classes
-    Quarter[] classes
+    classes
 
 class Quarter:
-    string id
-    int year
-    string title
-    Course[] courses
+    id
+    year
+    title
+    courses
 
 class Course:
-    string id
-    string title
-    string description
+    id
+    title
+    description
