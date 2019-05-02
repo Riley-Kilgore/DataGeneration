@@ -11,31 +11,40 @@ def write_file(filename, data):
 
 class Schedule:
     # Preferences
-    planName
-    major
-    school
-    timePref
-    summerPref
-    startQuarter
-    startMath
-    startEnglish
-    enrollType
-    jobType
+    planName = ''
+    major = ''
+    school = ''
+    timePref = ''
+    summerPref = ''
+    startQuarter = ''
+    startMath = ''
+    startEnglish = ''
+    enrollType = ''
+    jobType = ''
 
     #Rank
-    scheduleGrade
-    gradeReason
+    scheduleGrade = ''
+    gradeReason = ''
 
     # Classes
-    classes
+    classes = ''
+
+    def __init__(self):
+        pass
 
 class Quarter:
-    id
-    year
-    title
-    courses
+    id = ''
+    year = ''
+    title = ''
+    courses = []
+
+    def __init__(self):
+        pass
 
 class Course:
-    id
-    title
-    description
+    id = ''
+    title = ''
+    description = ''
+
+    def __init__(self):
+        pass
