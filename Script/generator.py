@@ -20,6 +20,13 @@ def main():
         if cont == 'n':
             break
 
+def external_schedule_creation(file_name, schdl):
+    options = parse_options()
+    if options.info:
+        print('version: ' + version)
+        sys.exit()
+    write_json(file_name, schdl.get_data)
+
 def parse_options():
     parser = OptionParser()
     parser.add_option('-i', '--info', action='store_true', dest='info', default=False, help='show script info and quit')
