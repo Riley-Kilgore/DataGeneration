@@ -1,12 +1,14 @@
 import sys
 from optparse import OptionParser
 
+author = 'Matt Johnson'
 version = 'v1.0'
 
 def main():
     print('\nATTENTION: this file is not meant to be run\n')
     options = parse_options()
     if options.info:
+        print('author: ' + author)
         print('version: ' + version)
         sys.exit()
 
@@ -21,11 +23,21 @@ class Schedule:
         self.__id = ''
         self.__date_created = ''
         self.__date_modified = ''
-        self.__academic_year = 0
-        self.__student_id = 0
+        self.__academic_year = ''
+        self.__student_id = ''
+        self.__plan_name = ''
+        self.__major = ''
+        self.__school = ''
+        self.__time_pref = ''
+        self.__summer_pref = ''
+        self.__start_quarter = ''
+        self.__start_math = ''
+        self.__start_english = ''
+        self.__enroll_type = ''
+        self.__job_type = ''
+        self.__schedule_grade = ''
+        self.__grade_reason = ''
         self.__quarters = []
-        self.__preferences = None
-        self.__metadata = None
 
     @property
     def id(self): return self.__id
@@ -57,89 +69,11 @@ class Schedule:
     @student_id.setter
     def student_id(self, value): self.__student_id = value
 
-    #TODO: property funcs for quarters
-
-    #TODO: property funcs for preferences
-
-    #TODO: property funcs for metadata
-
-    #TODO: needs to be expanded to return all relevant data
-    def get_data(self):
-        return {
-            'id' : self.__id,
-            'date_created' : self.__date_created,
-            'date_modifieid' : self.date_modified,
-            'academic_year' : self.academic_year,
-            'student_id' : self.student_id
-        }
-
-class Quarter:
-    def __init__(self):
-        self.__id = ''
-        self.__year = 0
-        self.__title = ''
-        self.__courses = []
-
     @property
-    def id(self): return self.__id
+    def grade_reason(self): return self.__grade_reason
 
-    @id.setter
-    def id(self, value): self.__id = value
-
-    @property
-    def year(self): return self.__year
-
-    @year.setter
-    def year(self, value): self.__year = value
-
-    @property
-    def title(self): return self.__title
-
-    @title.setter
-    def title(self, value): self.__title = value
-
-    @property
-    def courses(self): return self.__courses
-
-    @courses.setter
-    def courses(self, value): self.__courses = value
-
-class Course:
-    def __init__(self):
-        self.__id = ''
-        self.__title = ''
-        self.__description = ''
-
-    @property
-    def id(self): return self.__id
-
-    @id.setter
-    def id(self, value): self.__id = value
-
-    @property
-    def title(self): return self.__title
-
-    @title.setter
-    def title(self, value): self.__title = value
-
-    @property
-    def description(self): return self.__description
-
-    @description.setter
-    def description(self, value): self.__description = value
-
-class Preferences:
-    def __init__(self):
-        self.__plan_name = ''
-        self.__major = ''
-        self.__school = ''
-        self.__time_pref = ''
-        self.__summer_pref = ''
-        self.__start_quarter = ''
-        self.__start_math = ''
-        self.__start_english = ''
-        self.__enroll_type = ''
-        self.__job_type = ''
+    @grade_reason.setter
+    def grade_reason(self, value): self.__grade_reason = value
 
     @property
     def plan_name(self): return self.__plan_name
@@ -200,6 +134,111 @@ class Preferences:
 
     @job_type.setter
     def job_type(self, value): self.__job_type = value
+
+    @property
+    def schedule_grade(self): return self.__schedule_grade
+
+    @schedule_grade.setter
+    def schedule_grade(self, value): self.__schedule_grade = value
+
+    @property
+    def quarters(self): return self.__quarters
+
+    def add_quarter(self, quarter): self.__quarters.append(quarter)
+
+    '''
+    NOTE: metadata for script if needed for get_data() return
+    'id' : self.__id,
+    'date_created' : self.__date_created,
+    'date_modifieid' : self.__date_modified,
+    'academic_year' : self.__academic_year,
+    'student_id' : self.__student_id,
+    '''
+    def get_data(self):
+        return {
+            'plan_name': self.__plan_name,
+            'major': self.__major,
+            'school': self.__school,
+            'time_preference': self.__time_pref,
+            'summer_preference': self.__summer_pref,
+            'starting_quarter': self.__start_quarter,
+            'starting_math': self.__start_math,
+            'starting_english': self.__start_english,
+            'enrollment_type': self.__enroll_type,
+            'job_type': self.__job_type,
+            'schedule_grade' : self.__schedule_grade,
+            'grade_reason' : self.__grade_reason,
+            'quarters' : [quarter.get_data() for quarter in self.__quarters]
+        }
+
+class Quarter:
+    def __init__(self):
+        self.__id = ''
+        self.__year = ''
+        self.__title = ''
+        self.__courses = []
+
+    @property
+    def id(self): return self.__id
+
+    @id.setter
+    def id(self, value): self.__id = value
+
+    @property
+    def year(self): return self.__year
+
+    @year.setter
+    def year(self, value): self.__year = value
+
+    @property
+    def title(self): return self.__title
+
+    @title.setter
+    def title(self, value): self.__title = value
+
+    @property
+    def courses(self): return self.__courses
+
+    def add_course(self, course): self.__courses.append(course)
+
+    def get_data(self):
+        return {
+            'id' : self.__id,
+            'year' : self.__year,
+            'title' : self.__title,
+            'courses' : [course.get_data() for course in self.__courses]
+        }
+
+class Course:
+    def __init__(self):
+        self.__id = ''
+        self.__title = ''
+        self.__description = ''
+
+    @property
+    def id(self): return self.__id
+
+    @id.setter
+    def id(self, value): self.__id = value
+
+    @property
+    def title(self): return self.__title
+
+    @title.setter
+    def title(self, value): self.__title = value
+
+    @property
+    def description(self): return self.__description
+
+    @description.setter
+    def description(self, value): self.__description = value
+
+    def get_data(self):
+        return {
+            'id' : self.__id,
+            'title' : self.__title,
+            'description' : self.__description
+        }
 
 if __name__ == '__main__':
     main()

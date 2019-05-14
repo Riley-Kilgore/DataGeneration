@@ -1,0 +1,15 @@
+{
+    "plan_name": "Test",
+    "major": "TheMajor",
+    "school": "MySchool",
+    "time_preference": "MWF",
+    "summer_preference": "Yes",
+    "starting_quarter": "A121212",
+    "starting_math": "1212",
+    "starting_english": "22",
+    "enrollment_type": "222",
+    "job_type": "222",
+    "schedule_grade": "2222",
+    "grade_reason": "2222",
+    "quarters": []
+}
