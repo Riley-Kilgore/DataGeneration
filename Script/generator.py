@@ -6,7 +6,7 @@ import sys
 import os
 import json
 
-authors = ['Matt Johnson', 'Will Thomas']
+authors = ['Matt Johnson', 'Will Thomas', 'Riley Kilgore']
 version = 'v1.0'
 
 def main():
