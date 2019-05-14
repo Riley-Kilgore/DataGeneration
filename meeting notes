@@ -1,0 +1,34 @@
+We can use the table of different rating ids for the gui with a way
+to check multiple boxes for aggregation of each id into a 'hash'
+
+1 - too long
+2 - wrong time of day
+3 - too many hard classes in a quarter
+4 - too many major courses in a quarter
+5 - too few classes per quarter
+6 - good
+7 - unacceptable
+8 - too many courses in a quarter
+9 - too many electives
+10 - incorrect plan
+ yada yada, need to finish this table get the information from the other individuals
+
+Talk to likita (sp_)
+She has like 10000 observations, and she does this generation based on existing plans.
+Extrapolate metrics from this and doesn't even need to look at the plans.
+
+This is based on summer no summer, number of ___ and such
+feature vectors is what she uses.
+
+Ranks plans based on the metric provided by a certain plan. This is important for our
+generation and rating of data. This is based on a formula. Okay then, this is going to be
+a good way to validate our rankings generated manually.
+
+A schedule can be seen as a very constrained language.
+If we view these as regular expressions we may be able to create constraints
+that generates schedules in our alphabet...
+Tokens, statements. Is a schedule a statement or a token.
+
+We should have math 0 before 1, how can we describe these complex sequences in a simple
+alphabet such as regex...?
+

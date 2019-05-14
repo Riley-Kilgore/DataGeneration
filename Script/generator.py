@@ -176,8 +176,8 @@ def dump_stringvars():
             new_c.id = schdl.quarters[quarter].courses[course].id.get()
             new_c.title = schdl.quarters[quarter].courses[course].title.get()
             new_c.description = schdl.quarters[quarter].courses[course].description.get()
-            new_q.add_course(course)
-        final.add_quarter(quarter)
+            new_q.add_course(new_c)
+        final.add_quarter(new_q)
     return final
 
 def save_notification():

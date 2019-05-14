@@ -1,0 +1,39 @@
+{
+    "plan_name": "asdf",
+    "major": "asdfasdf",
+    "school": "",
+    "time_preference": "",
+    "summer_preference": "",
+    "starting_quarter": "",
+    "starting_math": "",
+    "starting_english": "",
+    "enrollment_type": "",
+    "job_type": "",
+    "schedule_grade": "",
+    "grade_reason": "",
+    "quarters": [
+        {
+            "id": "",
+            "year": "",
+            "title": "",
+            "courses": [
+                {
+                    "id": "",
+                    "title": "",
+                    "description": ""
+                },
+                {
+                    "id": "",
+                    "title": "",
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "id": "",
+            "year": "",
+            "title": "",
+            "courses": []
+        }
+    ]
+}
