@@ -18,6 +18,60 @@ def parse_options():
     options, _args = parser.parse_args()
     return options
 
+class Preferences:
+    def __init__(self):
+        self.__courses = '' # TODO, I don't know if this is right.
+        self.__credits = '' # Current credits
+        self.__english = '' # English starting
+        self.__enrollment = '' # Enrollment Type
+        self.__evening = '' # Will you take evening classes?
+        self.__job = '' # Are you working full time? Part Time? No
+# This is where I stopped making properties, I am going to take a break for the time being
+#   and come back in a little bit to finish this part of the code.
+        self.__major = '' # Major to transfer into.
+        self.__math = '' # Most advanced math
+        self.__quarter = '' # Current Quarter
+        self.__quarters = '' # How many quarters before transfer.
+        self.__school = '' # What school to transfer to.
+        self.__summer = '' # Summer classes?
+        
+    @property
+    def courses(self): return self.__courses
+
+    @courses.setter
+    def courses(self, value): self.__courses = value
+    
+    @property
+    def credits(self): return self.__credits
+    
+    @credits.setter
+    def credits(self, value): self.__credits = value
+    
+    @property
+    def english(self): return self.__english
+    
+    @english.setter
+    def english(self, value): self.__english = value
+    
+    @property
+    def enrollment(self): return self.__enrollment
+    
+    @enrollment.setter
+    def enrollment(self, value): self.__enrollment = value
+    
+    @property
+    def evening(self): return self.__evening
+    
+    @evening.setter
+    def evening(self, value): self.__evening = value
+    
+    @property
+    def job(self): return self.__job
+    
+    @job.setter
+    def job(self, value): self.__job = value
+        
+
 class Schedule:
     def __init__(self):
         self.__id = ''
