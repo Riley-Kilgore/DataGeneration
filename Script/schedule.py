@@ -127,18 +127,7 @@ class Schedule:
         self.__date_modified = ''
         self.__academic_year = ''
         self.__student_id = ''
-        self.__plan_name = ''
-        self.__major = ''
-        self.__school = ''
-        self.__time_pref = ''
-        self.__summer_pref = ''
-        self.__start_quarter = ''
-        self.__start_math = ''
-        self.__start_english = ''
-        self.__enroll_type = ''
-        self.__job_type = ''
-        self.__schedule_grade = ''
-        self.__grade_reason = ''
+        self.__metadata = ''
         self.__quarters = []
 
     @property
