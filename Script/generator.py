@@ -7,7 +7,7 @@ import os
 import json
 
 authors = ['Matt Johnson', 'Will Thomas', 'Riley Kilgore']
-version = 'v1.0'
+version = 'v2.0'
 
 def main():
     options = parse_options()

@@ -105,6 +105,21 @@ class Preferences:
     @summer.setter
     def summer(self, value): self.__summer = value
     
+    def get_data(self):
+        return {
+            'credits': self.__credits,
+            'english': self.__english,
+            'enrollment': self.__enrollment,
+            'evening': self.__evening,
+            'job': self.__job,
+            'major': self.__major,
+            'math': self.__math,
+            'quarter': self.__quarter,
+            'quarters': self.__quarters,
+            'school': self.__school,
+            'summer' : self.__summer
+        }
+    
 class Schedule:
     def __init__(self):
         self.__id = ''
