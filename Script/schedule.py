@@ -26,8 +26,6 @@ class Preferences:
         self.__enrollment = '' # Enrollment Type
         self.__evening = '' # Will you take evening classes?
         self.__job = '' # Are you working full time? Part Time? No
-# This is where I stopped making properties, I am going to take a break for the time being
-#   and come back in a little bit to finish this part of the code.
         self.__major = '' # Major to transfer into.
         self.__math = '' # Most advanced math
         self.__quarter = '' # Current Quarter
@@ -70,8 +68,43 @@ class Preferences:
     
     @job.setter
     def job(self, value): self.__job = value
-        
-
+    
+    @property
+    def major(self): return self.__major
+    
+    @major.setter
+    def major(self, value): self.__major = value
+    
+    @property
+    def math(self): return self.__math
+    
+    @math.setter
+    def math(self, value): self.__math = value
+    
+    @property
+    def quarter(self): return self.__quarter
+    
+    @quarter.setter
+    def quarter(self, value): self.__quarter = value
+    
+    @property
+    def quarters(self): return self.__quarters
+    
+    @quarter.setter
+    def quarters(self, value): self.__quarters = value
+    
+    @property
+    def school(self): return self.__school
+    
+    @school.setter
+    def school(self, value): self.__school = value
+    
+    @property
+    def summer(self): return self.__summer
+    
+    @summer.setter
+    def summer(self, value): self.__summer = value
+    
 class Schedule:
     def __init__(self):
         self.__id = ''
