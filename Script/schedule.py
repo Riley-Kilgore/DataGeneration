@@ -161,76 +161,10 @@ class Schedule:
     def student_id(self, value): self.__student_id = value
 
     @property
-    def grade_reason(self): return self.__grade_reason
-
-    @grade_reason.setter
-    def grade_reason(self, value): self.__grade_reason = value
-
-    @property
-    def plan_name(self): return self.__plan_name
-
-    @plan_name.setter
-    def plan_name(self, value): self.__plan_name = value
-
-    @property
-    def major(self): return self.__major
-
-    @major.setter
-    def major(self, value): self.__major = value
-
-    @property
-    def school(self): return self.__school
-
-    @school.setter
-    def school(self, value): self.__school = value
-
-    @property
-    def time_pref(self): return self.__time_pref
-
-    @time_pref.setter
-    def time_pref(self, value): self.__time_pref = value
-
-    @property
-    def summer_pref(self): return self.__summer_pref
-
-    @summer_pref.setter
-    def summer_pref(self, value): self.__summer_pref = value
-
-    @property
-    def start_quarter(self): return self.__start_quarter
-
-    @start_quarter.setter
-    def start_quarter(self, value): self.__start_quarter = value
-
-    @property
-    def start_math(self): return self.__start_math
-
-    @start_math.setter
-    def start_math(self, value): self.__start_math = value
-
-    @property
-    def start_english(self): return self.__start_english
-
-    @start_english.setter
-    def start_english(self, value): self.__start_english = value
-
-    @property
-    def enroll_type(self): return self.__enroll_type
-
-    @enroll_type.setter
-    def enroll_type(self, value): self.__enroll_type = value
-
-    @property
-    def job_type(self): return self.__job_type
-
-    @job_type.setter
-    def job_type(self, value): self.__job_type = value
-
-    @property
-    def schedule_grade(self): return self.__schedule_grade
-
-    @schedule_grade.setter
-    def schedule_grade(self, value): self.__schedule_grade = value
+    def metadata(self): return self.__metadata
+    
+    @metadata.setter
+    def metadata(self, value): self.__metadata = value
 
     @property
     def quarters(self): return self.__quarters
@@ -238,27 +172,22 @@ class Schedule:
     def add_quarter(self, quarter): self.__quarters.append(quarter)
 
     '''
-    NOTE: metadata for script if needed for get_data() return
-    'id' : self.__id,
-    'date_created' : self.__date_created,
-    'date_modifieid' : self.__date_modified,
-    'academic_year' : self.__academic_year,
-    'student_id' : self.__student_id,
+        self.__id = ''
+        self.__date_created = ''
+        self.__date_modified = ''
+        self.__academic_year = ''
+        self.__student_id = ''
+        self.__metadata = ''
+        self.__quarters = []
     '''
     def get_data(self):
         return {
-            'plan_name': self.__plan_name,
-            'major': self.__major,
-            'school': self.__school,
-            'time_preference': self.__time_pref,
-            'summer_preference': self.__summer_pref,
-            'starting_quarter': self.__start_quarter,
-            'starting_math': self.__start_math,
-            'starting_english': self.__start_english,
-            'enrollment_type': self.__enroll_type,
-            'job_type': self.__job_type,
-            'schedule_grade' : self.__schedule_grade,
-            'grade_reason' : self.__grade_reason,
+            'id': self.__id,
+            'date_created': self.__date_created,
+            'date_modified': self.__date_modified,
+            'academic_year': self.__academic_year,
+            'student_id': self.__student_id,
+            'metadata': self.__metadata,
             'quarters' : [quarter.get_data() for quarter in self.__quarters]
         }
 

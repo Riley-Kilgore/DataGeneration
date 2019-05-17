@@ -49,7 +49,7 @@ def create_schedule(root):
     schdl = schedule.Schedule()
     pref = schedule.Preferences()
     pref.courses = StringVar()
-    pref.credts = StringVar()
+    pref.credits = StringVar()
     pref.english = StringVar()
     pref.enrollment = StringVar()
     pref.evening = StringVar()
@@ -61,6 +61,7 @@ def create_schedule(root):
     pref.school = StringVar()
     pref.summer = StringVar()
     schdl.id = StringVar()
+    schdl.date_created = StringVar()
     schdl.date_modified = StringVar()
     schdl.academic_year = StringVar()
     schdl.student_id = StringVar()
@@ -176,23 +177,57 @@ def create_course():
 
 def save_schedule():
     global schdl
-    write_json(schdl.plan_name.get(), dump_stringvars().get_data())
+    global pref
+    write_json(schdl.id.get() + '_schedule', dump_schedule_stringvars().get_data())
+    write_json(schdl.id.get() + '_pref', dump_pref_stringvars().get_data())
     save_notification()
 
-def dump_stringvars():
-    final = schedule.Schedule()
-    final.plan_name = schdl.plan_name.get()
-    final.major = schdl.major.get()
-    final.school = schdl.school.get()
-    final.time_pref = schdl.time_pref.get()
-    final.summer_pref = schdl.summer_pref.get()
-    final.start_quarter = schdl.start_quarter.get()
-    final.start_math = schdl.start_math.get()
-    final.start_english = schdl.start_english.get()
-    final.enroll_type = schdl.enroll_type.get()
-    final.job_type = schdl.job_type.get()
-    final.schedule_grade = schdl.schedule_grade.get()
-    final.grade_reason = schdl.grade_reason.get()
+def dump_pref_stringvars():
+    '''
+        self.__courses = '' # TODO, I don't know if this is right.
+        self.__credits = '' # Current credits
+        self.__english = '' # English starting
+        self.__enrollment = '' # Enrollment Type
+        self.__evening = '' # Will you take evening classes?
+        self.__job = '' # Are you working full time? Part Time? No
+        self.__major = '' # Major to transfer into.
+        self.__math = '' # Most advanced math
+        self.__quarter = '' # Current Quarter
+        self.__quarters = '' # How many quarters before transfer.
+        self.__school = '' # What school to transfer to.
+        self.__summer = '' # Summer classes?
+    '''
+    finalP = schedule.Preferences()
+    finalP.courses = pref.courses.get()
+    finalP.credits = pref.credits.get()
+    finalP.english = pref.english.get()
+    finalP.enrollment = pref.enrollment.get()
+    finalP.evening = pref.evening.get()
+    finalP.job = pref.job.get()
+    finalP.major = pref.major.get()
+    finalP.math = pref.math.get()
+    finalP.quarter = pref.quarter.get()
+    finalP.quarters = pref.quarters.get()
+    finalP.school = pref.school.get()
+    finalP.summer = pref.summer.get()
+    return finalP
+
+def dump_schedule_stringvars():
+    '''
+        self.__id = ''
+        self.__date_created = ''
+        self.__date_modified = ''
+        self.__academic_year = ''
+        self.__student_id = ''
+        self.__metadata = ''
+        self.__quarters = []
+    '''
+    finalS = schedule.Schedule()
+    finalS.id = schdl.id.get()
+    finalS.date_created = schdl.date_created.get()
+    finalS.date_modified = schdl.date_modified.get()
+    finalS.academic_year = schdl.academic_year.get()
+    finalS.metadata = schdl.metadata.get()
     for quarter in range(0, len(schdl.quarters)):
         new_q = schedule.Quarter()
         new_q.id = schdl.quarters[quarter].id.get()
@@ -204,8 +239,8 @@ def dump_stringvars():
             new_c.title = schdl.quarters[quarter].courses[course].title.get()
             new_c.description = schdl.quarters[quarter].courses[course].description.get()
             new_q.add_course(new_c)
-        final.add_quarter(new_q)
-    return final
+        finalS.add_quarter(new_q)
+    return finalS
 
 def save_notification():
     global schdl
